@@ -1,0 +1,20 @@
+# Name:          machine_specific.shrc
+# Description:   Contains functions and aliases to be sourced just on this machine;
+#                also experimental utilities that may be moved into common at a later time.
+#                This is part of a modularized shell config file.
+# Options:       None
+# Author:        Adam Graliński (https://gralin.ski)
+# License:       CC0
+# Forces Dia to start in single-window mode:
+
+alias dia="dia --integrated"
+
+# Enables z frecency measurements (system-wide installation):
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+# Sets z data path to ~/.config/z/.z . The default is $HOME/.z .
+Z_DATA_DIR="${HOME}/.config/z"
+if [ ! -d "${Z_DATA_DIR}" ]; then
+  mkdir -p "${Z_DATA_DIR}"
+fi
+export _Z_DATA="${Z_DATA_DIR}/.z"
