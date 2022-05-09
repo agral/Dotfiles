@@ -1,0 +1,15 @@
+# Name:          dotfiles.shrc
+# Description:   Configures the special-purpose `Dotfiles' command, used for version controlling of the dotfiles.
+#                This is part of a modularized shell config file.
+# Options:       None
+# Created:       08.05.2022
+# Last modified: 09.05.2022
+# Author:        Adam Graliński (https://gralin.ski)
+# License:       CC0
+
+
+export DOTFILES_GIT_DIR="$HOME/Repos/agral/Dotfiles/"
+
+Dotfiles() {
+  /usr/bin/git --git-dir "$DOTFILES_GIT_DIR" --work-tree="$HOME" "$@"
+}
