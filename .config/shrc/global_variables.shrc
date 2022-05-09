@@ -1,0 +1,34 @@
+# Name:          global_variables.shrc
+# Description:   Contains exports of various global variables and settings.
+#                This is part of a modularized shell config file.
+# Options:       None
+# Author:        Adam Graliński (https://gralin.ski)
+# License:       CC0
+
+# Use colors for GCC warnings and errors:
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Extend the history log with a timestamp:
+export HISTTIMEFORMAT="[%Y-%m-%d %T] "
+
+# Display manpages in color. These color definitions are bash-specific.
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+export XDG_CONFIG_HOME="${HOME}/.config"
+
+export VISUAL=nvim
+export EDITOR="${VISUAL}"
+
+export QT_SELECT=5
+
+# Set tmux's temp directory to /tmp in order to get consistent paths in session descriptor files:
+export TMUX_TMPDIR="/tmp"
+
+# LC_TIME: Sets ISO time format instead of the default mm/dd/yyyy folly:
+export LC_TIME=en_DK.UTF-8
