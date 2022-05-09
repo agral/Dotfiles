@@ -1,0 +1,148 @@
+# Name:          common.shrc
+# Description:   Contains functions and aliases to be sourced for all the shells, on all the machines.
+#                This is part of a modularized shell config file.
+# Options:       None
+# Created:       2015
+# Last modified: 09.05.2022
+# Author:        Adam Graliński (https://gralin.ski)
+# License:       CC0
+
+
+# Disables the Ctrl-S/Ctrl-Q keystrokes which mess up tmux:
+stty -ixon -ixoff
+
+# Creates a directory and immediately enters into it:
+function Mkdir {
+  mkdir -p -- "$1" && cd -P -- "$1"
+}
+# Sometimes you realize that you want to mkdir && cd into it after you already
+# have started typing. In that case use mkdiR instead of Mkdir :
+alias mkdiR="Mkdir"
+
+# Passes all the local aliases to sudo:
+alias sudo='sudo '
+
+### One-letter aliases: ###
+# Uses bc to evaluate an expression provided as argument(s):
+function B {
+  if [ "${#}" -gt 0 ]; then
+    echo "${@}" | bc -l
+  else
+    echo "Error: please provide an expression to calculate."
+  fi
+}
+
+alias e='echo'
+
+# Sets up 'g' as an alias for 'git', with autocompletion:
+alias g='git'
+__GIT_COMPLETION_FILE="/usr/share/bash-completion/completions/git"
+if [ -f "${__GIT_COMPLETION_FILE}" ]; then
+  source "${__GIT_COMPLETION_FILE}"
+  __git_complete g __git_main
+fi
+
+alias q='exit'
+
+# Sudoes the passed command (by default sudoes the last command):
+function s {
+  if [ "${#}" -eq 0 ]; then
+    sudo "${SHELL}" -c "$(history -p '!!')"
+  else
+    sudo "${@}"
+  fi
+}
+
+alias v='nvim'
+alias nv='nvim'
+
+# x - explore this location in the file explorer utility
+function x {
+  spacefm -w "${PWD}"
+}
+### End of one-letter aliases' section ###
+
+# Frag'em easier:
+alias k9='kill -9'
+alias ka='killall'
+
+# Forces color support of ls and various grep flavors:
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ls='ls --color=auto'
+
+# Useful ls aliases:
+alias la='ls -A'
+alias ll='ls -AlF'
+alias lal='ls -Al'
+alias lss='ls -Al'
+alias l='ls -CF'
+alias lt='ls -alptr' # shows results sorted by time, oldest first.
+alias labc='ls -lap' # shows results sorted alphabetically (ascending order).
+
+# Easier $PATH echoing:
+alias Path='echo -e ${PATH//:/\\n}'
+
+# Easy time and date:
+alias Time='date "+%T"'
+alias Date='date "+%d.%m.%Y"'
+alias Unixtime='date "+%s"'
+
+# Better & faster ping tool:
+alias Ping='ping -c 10 -i.2'
+
+# Git Amend Date - sets author's & committer's date to current time.
+alias gad='GIT_COMMITER_DATE="`date`" git commit --amend --date="`date`"'
+
+# Enables easy cd'ing:
+alias cd..='cd ..'            #  A typo autocorrection
+alias ..='cd ..'
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+alias cal="cal --monday"
+
+# Registers cpr as fancy rsync command (CoPy with Rsync):
+alias cpr="rsync -ah --inplace --info=progress2"
+
+# Extracts archives easily:
+function Extract {
+  if [ -f "${1}" ]; then
+    case "${1}" in
+      *.tar.bs2)      tar xjvf "${1}"    ;;
+      *.tar.gz)       tar xzvf "${1}"    ;;
+      *.bz2)          bunzip2 "${1}"     ;;
+      *.rar)          unrar "${1}"       ;;
+      *.gz)           gunzip "${1}"      ;;
+      *.tar)          tar xvf "${1}"     ;;
+      *.tbz2)         tar xjvf "${1}"    ;;
+      *.tgz)          tar xzvf "${1}"    ;;
+      *.zip)          unzip "${1}"       ;;
+      *.Z)            uncompress "${1}"  ;;
+      *.7z)           7z x "${1}"        ;;
+      *)              printf "Unrecognized format: %s\n" "${1}" ;;
+    esac
+  else
+    printf "%s is not a valid file." "${1}"
+  fi
+}
+
+# Checks the weather for a selected town in a console:
+function Weather {
+  local TOWN="Warsaw"
+  if [ "${#}" -ne 0 ]; then
+    TOWN="$*"
+  fi
+  curl "wttr.in/${TOWN}"
+}
+
+# Queries cht.sh (a cheatsheet of many Unix commands):
+function Cheat() {
+  while [ "${#}" -gt 0 ]; do
+    curl "cht.sh/${1}"
+    shift
+  done
+}
