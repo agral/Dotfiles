@@ -1,0 +1,47 @@
+# Name:          package_manager.shrc
+# Description:   Provides consistent, unified commands for package management across all Linux distributions.
+#                This is part of a modularized shell config file.
+# Options:       None
+# Author:        Adam Graliński (https://gralin.ski)
+# License:       CC0
+
+function Pacget {
+  sudo pacman -S "${@}"
+}
+
+function Pacsearch {
+  pacman -Ss "${@}"
+}
+
+function Pacrm {
+  sudo pacman -Rsn "${@}"
+}
+
+function Pacupdate {
+  sudo pacman -Syy
+}
+
+function Pacupgrade {
+  sudo pacman -Syu
+}
+
+### Non-mandatory functions:
+function Aurget {
+  yay -S "${@}"
+}
+
+function Aursearch {
+  yay -Ss "${@}"
+}
+
+function Aurrm {
+  yay -Rsn "$@"
+}
+
+function Aurupdate {
+  yay -Syy
+}
+
+function Aurupgrade {
+  yay -Syu
+}
