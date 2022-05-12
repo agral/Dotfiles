@@ -19,7 +19,8 @@ function Mkdir {
 # have started typing. In that case use mkdiR instead of Mkdir :
 alias mkdiR="Mkdir"
 
-# Passes all the local aliases to sudo:
+# Passes all the local aliases to sudo.
+# Note: does not work for functions, only plain aliases.
 alias sudo='sudo '
 
 ### One-letter aliases: ###
