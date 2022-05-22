@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+git_name="$(git config user.name)"
+git_email="$(git config user.email)"
+
+echo "${git_name} <${git_email}>"
