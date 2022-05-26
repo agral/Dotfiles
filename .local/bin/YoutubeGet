@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+__usage="
+YoutubeGet - easy to use front-end for a youtube content downloading agent
+
+Allows the user to interact with streaming media archiving utilities
+such as yt-dlp, youtube-dl and other with easy commands. Provides some
+desirable parameters to the underlying download agent.
+
+By default a MP4 video is downloaded with embedded thumbnail and metadata.
+
+Usage:
+    YoutubeGet [-3h] address [...args]
+
+Options:
+    -h, --help: print out this help message and exit
+    -3, --mp3: download best audio, convert result to MP3 format
+
+Author: Adam Graliński (https://gralin.ski)
+License: MIT
+"
+
+youtube_dl_bin=yt-dlp
+
+clRed="\033[0;31m"
+clRedBright="\033[1;31m"
+clNone="\033[0m"
+
+# Handle arguments:
+args_positional=()
+while [ $# -gt 0 ]; do
+  case $1 in
+    -3|--mp3)
+      target_is_mp3=1
+      echo "MP3 file will be downloaded (best audio)"
+      shift # shift past this argument
+      ;;
+    -h|--help)
+      echo "$__usage"
+      exit 0
+      ;;
+    *) # unknown option:
+      args_positional+=("$1")
+      shift # shift past this argument
+      ;;
+  esac
+done
+
+if [ ${#args_positional[@]} -eq 0 ]; then
+  >&2 echo -e "${clRed}Error: ${clRedBright}URL not provided. Aborting.${clNone}"
+  exit 1
+fi
+
+echo "Downloading ${*}..."
+
+if [ -n "${target_is_mp3}" ]; then
+  "${youtube_dl_bin}" \
+    --format "bestaudio/best" \
+    --continue --ignore-errors --no-overwrites \
+    --output "%(title)s.%(ext)s" \
+    --extract-audio \
+    --audio-quality 0 \
+    --audio-format mp3 \
+    "${args_positional[@]}"
+else
+  "${youtube_dl_bin}" \
+    --merge-output-format mp4 \
+    --postprocessor-args "-strict experimental" \
+    -f "bestvideo+bestaudio/best" \
+    --embed-thumbnail \
+    --add-metadata \
+    "${args_positional[@]}"
+fi
