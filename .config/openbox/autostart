@@ -1,0 +1,56 @@
+##### ----- After 0 seconds (immediately): ------ ######
+# Disable blanking of the screen:
+(xset s off -dpms) &
+
+# Start tint2 - an application bar with dock area:
+(tint2) &
+
+# Set monitors
+(bash "$HOME/.screenlayout/LeftHorizontalRightVertical.sh") &
+
+# Start all the MPDs:
+(mpd "${HOME}/.config/mpd/mpd.conf") &
+(mpd "${HOME}/.config/mpd/mpd_incoming/mpd_incoming.conf") &
+(mpd "${HOME}/.config/mpd/mpd_podcast/mpd_podcast.conf") &
+
+##### ----- After 1 second: ------ ######
+# Start NetworkManager's applet:
+(sleep 1s && nm-applet) &
+# Set the wallpaper:
+(sleep 1s && feh --bg-center "${HOME}/Pictures/Wallpapers/gral_bg.png") &
+# Start rxvt-unicode's daemon:
+(sleep 1s && urxvtd) &
+# Set keyboard layout:
+(sleep 1s && bash -c 'setxkbmap dvorak -variant pl -option caps:escape -option compose:menu') &
+
+##### ----- After 2 seconds: ----- ######
+# Start the compositing manager (alpha/transparency in openbox):
+(sleep 2s && picom) &
+
+# Start the drop-down terminals - tilda (3 instances)
+# Note: Tilda dislikes having multiple instances launched at the same moment,
+# so there should be at least 1s delay between each consecutive invocation of 'tilda' command.
+(sleep 2s && tilda) & # (#1/3 instances)
+
+##### ----- After 3 seconds: ----- ######
+# Start all the conkies:
+#(sleep 3s && conky -c ~/.config/conky/Experimental/info.conky) &
+(sleep 3s && conky -c ~/Source/Conky/master.conky) &
+
+(sleep 3s && tilda) & # (#2/3 instances)
+
+##### ----- After 4 seconds: ----- ######
+# Start Dunst - a front-end for libnotify:
+(sleep 4s && dunst) &
+(sleep 4s && flameshot) &
+(sleep 4s && tilda) & # (#3/3 instances)
+
+##### ----- After 5 seconds: ----- ######
+(sleep 5s && spacefm -d) &
+(sleep 5s && ibus-daemon) &
+(sleep 5s && bash -c "${HOME}/.local/bin/InitTmuxSession") &
+
+##### ----- After 6 seconds: ----- ######
+# Starts barrier server:
+(sleep 6s && bash -c "${HOME}/.local/bin/MachineSpecific/BarrierStart.sh") &
+##### ----- AUTOSTART ROUTINE COMPLETED ----- #####
