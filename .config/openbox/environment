@@ -1,0 +1,4 @@
+# This file is empty on purpose - all the common environmental options
+# are already set in bash-profile or openbox-autostart files.
+#
+# No environment options specific exclusively for openbox are used.
