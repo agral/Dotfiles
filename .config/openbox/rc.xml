@@ -898,6 +898,26 @@
   </keybind>
   <!-- End of the keychains for modifying the machine state. -->
 
+  <!-- Keychains for handling notes and scratchpads -->
+  <keybind key="W-n">
+    <keybind key="s">
+      <action name="Execute">
+        <command>nvim-qt /mnt/vault/Data/Notes/scratchpad.txt</command>
+      </action>
+    </keybind>
+  </keybind>
+  <!-- End of keychains for handling of notes and scratchpads -->
+
+  <!-- Keychains for system-wide utilities: -->
+  <keybind key="W-u">
+    <keybind key="s">
+      <action name="Execute">
+        <command>nvim-qt /mnt/vault/Data/Notes/scratchpad.txt</command>
+      </action>
+    </keybind>
+  </keybind>
+  <!-- End of keychains for system-wide utilities. -->
+
   <!-- Key-chains for modifying the windows: -->
   <keybind key="W-w">
     <!-- Toggles the colors of all the instances of this window class. -->
