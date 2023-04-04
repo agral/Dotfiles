@@ -39,6 +39,15 @@ return require("packer").startup(
     -- colorscheme:
     use "folke/tokyonight.nvim"
 
+    -- Autocompletion: nvim-cmp
+    use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-buffer"
+    --use "hrsh7th/cmp-cmdline"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-nvim-lua"
+    -- for future use when LSP gets set up:
+    --use "hrsh7th/cmp-nvim-lsp" 
+
     -- Run PackerSync after cloning packer.nvim for the first time:
     if PACKER_BOOTSTRAP then
       require("packer").sync()
