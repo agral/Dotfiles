@@ -4,6 +4,12 @@ if not cmp_is_good then
   return
 end
 
+local luasnip_is_good, luasnip = pcall(require, "luasnip")
+if not luasnip_is_good then
+  vim.api.nvim_echo({{"[setup error] ", "Error"}, {"luasnip plugin is missing", "Normal"}}, true, {})
+  return
+end
+
 local nf_icons = {
   Text = "",
   Method = "m",
@@ -19,6 +25,7 @@ local nf_icons = {
   Value = "",
   Enum = "",
   Keyword = "",
+  Snippet = "",
   Color = "",
   File = "",
   Reference = "",
@@ -37,6 +44,8 @@ cmp.setup {
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s", nf_icons[vim_item.kind])
       vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
@@ -57,6 +66,10 @@ cmp.setup {
     ["<C-Space>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
       else
         fallback()
       end
@@ -64,12 +77,21 @@ cmp.setup {
     ["C-S-Space"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
     end, {"i", "s"}),
   },
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
   sources = {
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
   },

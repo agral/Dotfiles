@@ -45,8 +45,17 @@ return require("packer").startup(
     --use "hrsh7th/cmp-cmdline"
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-nvim-lua"
-    -- for future use when LSP gets set up:
-    --use "hrsh7th/cmp-nvim-lsp" 
+    use "hrsh7th/cmp-nvim-lsp" 
+
+    -- LSP:
+    use "neovim/nvim-lspconfig"
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
+
+
+    -- Snippets:
+    use "L3MON4D3/LuaSnip" -- snippet completion engine
+    use "saadparwaiz1/cmp_luasnip"
 
     -- Run PackerSync after cloning packer.nvim for the first time:
     if PACKER_BOOTSTRAP then
