@@ -530,6 +530,15 @@
       </action>
     </keybind>
 
+    <keybind key="l">
+      <action name="Execute">
+        <command>librewolf</command>
+      </action>
+      <action name="Execute">
+        <command>notify-send -t 1000 "LibreWolf" "Launching"</command>
+      </action>
+    </keybind>
+
     <keybind key="m">
       <action name="Execute">
         <command>bash -c "LC_TIME=lt_LT thunderbird"</command>
@@ -814,7 +823,7 @@
       </keybind>
       <keybind key="2">
         <action name="Execute">
-          <command>bash ~/.screenlayout/LeftHorizontalRightVertical.sh</command>
+          <command>bash ~/.screenlayout/4K.sh</command>
         </action>
         <action name="Execute">
           <command>
@@ -897,6 +906,24 @@
 
   </keybind>
   <!-- End of the keychains for modifying the machine state. -->
+
+  <!-- Alternative keybindings for changing keyboard layout with XF86Calculator key -->
+  <keybind key="XF86Calculator">
+    <action name="Execute">
+      <command>setxkbmap dvorak -variant pl -option caps:escape -option compose:menu</command>
+    </action>
+    <action name="Execute">
+      <command>notify-send -t 2000 "Custom/Dvorak active now" "Keyboard layout change"</command>
+    </action>
+  </keybind>
+  <keybind key="S-XF86Calculator">
+    <action name="Execute">
+      <command>setxkbmap pl</command>
+    </action>
+    <action name="Execute">
+      <command>notify-send -t 2000 "QWERTY PL active now" "Keyboard layout change"</command>
+    </action>
+  </keybind>
 
   <!-- Keychains for handling notes and scratchpads -->
   <keybind key="W-n">
@@ -1173,8 +1200,7 @@
   <!-- Keybindings for taking the screenshots: -->
   <keybind key="Print">
     <action name="Execute">
-      <!-- Takes the screenshot covering the entire desktop to the system clipboard: -->
-      <command>Screenshot</command>
+      <command>flameshot gui</command>
     </action>
   </keybind>
   <keybind key="C-Print">
