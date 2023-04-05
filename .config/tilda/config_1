@@ -1,6 +1,6 @@
 tilda_config_version="1.3.3"
 command="tmux -2 -L F11"
-font="Iosevka 14"
+font="Iosevka Nerd Font 14"
 key="<Shift>F11"
 addtab_key="<Shift><Control>t"
 fullscreen_key="<Primary><Shift><Alt>F11"
