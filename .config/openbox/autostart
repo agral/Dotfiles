@@ -6,7 +6,7 @@
 (tint2) &
 
 # Set monitors
-(bash "$HOME/.screenlayout/LeftHorizontalRightVertical.sh") &
+(bash "$HOME/.screenlayout/4K.sh") &
 
 # Start all the MPDs:
 (mpd "${HOME}/.config/mpd/mpd.conf") &
@@ -34,7 +34,7 @@
 
 ##### ----- After 3 seconds: ----- ######
 # Start all the conkies:
-#(sleep 3s && conky -c ~/.config/conky/Experimental/info.conky) &
+(sleep 3s && conky -c ~/Source/Conky/Scratchpad/main.conky) &
 (sleep 3s && conky -c ~/Source/Conky/master.conky) &
 
 (sleep 3s && tilda) & # (#2/3 instances)
