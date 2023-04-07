@@ -52,10 +52,12 @@ return require("packer").startup(
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
 
-
     -- Snippets:
     use "L3MON4D3/LuaSnip" -- snippet completion engine
     use "saadparwaiz1/cmp_luasnip"
+
+    -- Git:
+    use "lewis6991/gitsigns.nvim"
 
     -- Run PackerSync after cloning packer.nvim for the first time:
     if PACKER_BOOTSTRAP then
