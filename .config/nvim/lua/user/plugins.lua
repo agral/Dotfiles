@@ -45,7 +45,7 @@ return require("packer").startup(
     --use "hrsh7th/cmp-cmdline"
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-nvim-lua"
-    use "hrsh7th/cmp-nvim-lsp" 
+    use "hrsh7th/cmp-nvim-lsp"
 
     -- LSP:
     use "neovim/nvim-lspconfig"
