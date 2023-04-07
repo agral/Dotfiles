@@ -24,6 +24,7 @@ mason.setup(mason_setup_settings)
 
 local required_servers = {
   "bashls",
+  "clangd",
   "jsonls",
   "lua_ls",
 }
