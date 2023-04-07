@@ -23,6 +23,7 @@ local mason_setup_settings = {
 mason.setup(mason_setup_settings)
 
 local required_servers = {
+  "lua_ls",
 }
 
 local masonLsp_setup_settings = {
