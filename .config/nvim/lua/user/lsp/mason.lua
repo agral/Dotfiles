@@ -28,6 +28,7 @@ local required_servers = {
   "jsonls",
   "lua_ls",
   "pyright",
+  "tsserver",
 }
 
 local masonLsp_setup_settings = {
