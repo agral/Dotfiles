@@ -27,6 +27,7 @@ local required_servers = {
   "clangd",
   "jsonls",
   "lua_ls",
+  "pyright",
 }
 
 local masonLsp_setup_settings = {
