@@ -884,20 +884,20 @@
       <!-- Sets the polish dvorak keyboard layout: -->
       <keybind key="d">
         <action name="Execute">
-          <command></command>
+          <command>setxkbmap pl -variant dvorak -option caps:escape -option compose:menu</command>
         </action>
         <action name="Execute">
-          <command>notify-send -t 1000 "Dvorak keyboard set" "Hardware state modification"</command>
+          <command>notify-send -t 2000 "Custom/Dvorak active now" "Keyboard layout change"</command>
         </action>
       </keybind>
 
       <!-- Sets the polish qwerty keyboard layout: -->
       <keybind key="q">
         <action name="Execute">
-          <command>false</command>
+          <command>setxkbmap pl</command>
         </action>
         <action name="Execute">
-          <command>notify-send -t 1000 "Polish QWERTY keyboard set"
+          <command>notify-send -t 2000 "QWERTY PL active now"
           "Hardware state modification"</command>
         </action>
       </keybind>
@@ -910,7 +910,7 @@
   <!-- Alternative keybindings for changing keyboard layout with XF86Calculator key -->
   <keybind key="XF86Calculator">
     <action name="Execute">
-      <command>setxkbmap dvorak -variant pl -option caps:escape -option compose:menu</command>
+      <command>setxkbmap pl -variant dvorak -option caps:escape -option compose:menu</command>
     </action>
     <action name="Execute">
       <command>notify-send -t 2000 "Custom/Dvorak active now" "Keyboard layout change"</command>
