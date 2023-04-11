@@ -59,6 +59,14 @@ return require("packer").startup(
     -- Git:
     use "lewis6991/gitsigns.nvim"
 
+    -- Telescope:
+    use {
+      "nvim-telescope/telescope.nvim",
+      requires = {
+        {"nvim-lua/plenary.nvim"},
+      },
+    }
+
     -- Run PackerSync after cloning packer.nvim for the first time:
     if PACKER_BOOTSTRAP then
       require("packer").sync()
