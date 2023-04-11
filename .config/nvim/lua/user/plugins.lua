@@ -67,6 +67,12 @@ return require("packer").startup(
       },
     }
 
+    -- Treesitter:
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+    }
+
     -- Run PackerSync after cloning packer.nvim for the first time:
     if PACKER_BOOTSTRAP then
       require("packer").sync()
