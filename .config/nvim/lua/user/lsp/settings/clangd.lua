@@ -35,7 +35,7 @@ return {
   commands = {},
   filetypes = {"c", "cpp", "objc", "objcpp"},
   init_options = {
-    compilationDatabasePath = "./build",
+    compilationDatabasePath = {"./build", "."},
   },
   root_dir = function(filename)
     return util.root_pattern(unpack(root_files))(filename) or util.find_git_ancestor(filename)
