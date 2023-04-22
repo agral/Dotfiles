@@ -27,7 +27,8 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<leader>bn", ":bnext<CR>", opts)
 keymap("n", "<leader>bp", ":bprevious<CR>", opts)
 
-keymap("n", "<leader>e", ":Lexplore 30<CR>", opts)
+-- Normal mapping <leader>e set to NvimTreeToggle in nvimtree.lua
+keymap("n", "<leader>E", ":Lexplore 30<CR>", opts)
 
 -- Move text up/down:
 keymap("n", "<A-j>", ":m .+1<CR>==", opts)

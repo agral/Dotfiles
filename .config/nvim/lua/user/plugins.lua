@@ -73,6 +73,9 @@ return require("packer").startup(
       run = ":TSUpdate",
     }
 
+    -- Other plugins:
+    use "nvim-tree/nvim-tree.lua"
+
     -- Run PackerSync after cloning packer.nvim for the first time:
     if PACKER_BOOTSTRAP then
       require("packer").sync()
