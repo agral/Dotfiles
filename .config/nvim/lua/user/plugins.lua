@@ -75,6 +75,13 @@ return require("packer").startup(
 
     -- Other plugins:
     use "nvim-tree/nvim-tree.lua"
+    use {
+      "nvim-lualine/lualine.nvim",
+      requires = {
+        "nvim-tree/nvim-web-devicons",
+        opt = true,
+      },
+    }
 
     -- Run PackerSync after cloning packer.nvim for the first time:
     if PACKER_BOOTSTRAP then
