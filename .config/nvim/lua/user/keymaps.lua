@@ -1,4 +1,5 @@
 local opts = {noremap = true, silent = true,}
+local opts_only_noremap = {noremap=true,}
 local keymap = vim.api.nvim_set_keymap
 
 -- Set <Space> as leader key:
@@ -52,5 +53,8 @@ keymap("v", "p", "\"_dP", opts)
 keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("x", "<A-k>", ":m '>-2<CR>gv=gv", opts)
 
+keymap("c", "W", "w", opts_only_noremap)
+
 vim.keymap.set({'n', 'x', 'o'}, 'j', 'gj')
 vim.keymap.set({'n', 'x', 'o'}, 'k', 'gk')
+
