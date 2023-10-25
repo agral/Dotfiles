@@ -1,14 +1,16 @@
+vim.opt.autoread = true -- automatic detection of file change.
 vim.opt.backup = false
 vim.opt.breakindent = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 1
-vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.conceallevel = 0
 vim.opt.cursorline = true
 vim.opt.fileencoding = "utf-8"
 vim.opt.guifont = "monospace:h16"
 vim.opt.hlsearch = true
-vim.opt.ignorecase = true
+vim.opt.lazyredraw = true
+vim.opt.listchars = { trail = "•", tab=">~" }
+vim.opt.list = true
 vim.opt.mouse = ""        -- disable mouse support completely.
 vim.opt.termguicolors = true
 
@@ -40,8 +42,12 @@ vim.opt.showtabline = 1
 -- always show the sign column, even with no issues to indicate:
 vim.opt.signcolumn = "yes"
 
+vim.opt.ignorecase = true
 vim.opt.smartcase = true
+-- React to the syntax/style of code that is being edited. If true, set autoindent to true, too.:
 vim.opt.smartindent = true
+-- Apply the indentation of the current line to the next (by either Enter in insert mode, or o/O in normal):
+vim.opt.autoindent = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false
@@ -61,3 +67,9 @@ vim.opt.writebackup = false
 -- make nvim treat '-' character as part of the keyword (default: separator).
 -- this lets for more natural handling of hyphen-case-keywords.
 vim.cmd [[set iskeyword+=-]]
+
+-- Better autocomplete behavior:
+-- menuone -> show popup also for entries where only one match is available.
+-- preview -> show extra info regarding currently highlighted completion
+-- noselect -> do not complete matching until it is manually selected by the user.
+vim.opt.completeopt = { "menuone", "preview", "noselect" }
