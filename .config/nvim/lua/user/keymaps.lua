@@ -58,3 +58,4 @@ keymap("c", "W", "w", opts_only_noremap)
 vim.keymap.set({'n', 'x', 'o'}, 'j', 'gj')
 vim.keymap.set({'n', 'x', 'o'}, 'k', 'gk')
 
+-- Note: keymaps related to the LSP are defined in lsp/handlers.lua file.

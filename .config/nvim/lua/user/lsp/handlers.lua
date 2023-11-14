@@ -36,13 +36,13 @@ local function lsp_keymaps(buf_num)
   local options = {noremap = true, silent = true,}
   --vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, options)
   local kmap = vim.api.nvim_buf_set_keymap
-  kmap(buf_num, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", options)
-  kmap(buf_num, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", options)
-  kmap(buf_num, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", options)
-  kmap(buf_num, "n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", options)
-  kmap(buf_num, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", options)
+  kmap(buf_num, "n", "<leader>lgD", "<cmd>lua vim.lsp.buf.declaration()<cr>", options)
+  kmap(buf_num, "n", "<leader>lgd", "<cmd>lua vim.lsp.buf.definition()<cr>", options)
+  kmap(buf_num, "n", "<leader>lgi", "<cmd>lua vim.lsp.buf.implementation()<cr>", options)
+  kmap(buf_num, "n", "<leader>lgr", "<cmd>lua vim.lsp.buf.references()<cr>", options)
+  kmap(buf_num, "n", "<leader>lgl", "<cmd>lua vim.diagnostic.open_float()<cr>", options)
 
-  kmap(buf_num, "n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", options)
+  kmap(buf_num, "n", "<leader>lh", "<cmd>lua vim.lsp.buf.hover()<cr>", options)
 
   kmap(buf_num, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", options)
   kmap(buf_num, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", options)
@@ -55,7 +55,7 @@ local function lsp_keymaps(buf_num)
   kmap(buf_num, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", options)
 end
 
-Handlers.on_attach = function(client, buf_num)
+Handlers.on_attach = function(_, buf_num)
   lsp_keymaps(buf_num)
 end
 
