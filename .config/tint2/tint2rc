@@ -29,6 +29,8 @@ border_sides = TBL
 panel_items = TLS
 # Tray, Launcher, Systray
 # Also available: Battery, Clock
+
+# available values: all | primary | {1, 2, ...}
 panel_monitor = 1
 panel_position = center left vertical
 panel_size = 94% 32
@@ -91,6 +93,7 @@ systray_sort = ascending
 systray_background_id = 0
 systray_icon_size = 0
 systray_icon_asb = 100 0 0
+systray_monitor = 1
 
 # Tooltips
 tooltip = 0
