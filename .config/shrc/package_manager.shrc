@@ -6,32 +6,32 @@
 # License:       CC0
 
 function Pacget {
-  sudo pacman -S "${@}"
+  sudo pacman -S "$@"
 }
 
 function Pacsearch {
-  pacman -Ss "${@}"
+  pacman -Ss "$@"
 }
 
 function Pacrm {
-  sudo pacman -Rsn "${@}"
+  sudo pacman -Rsn "$@"
 }
 
 function Pacupdate {
-  sudo pacman -Syy
+  sudo pacman -Syy "$@"
 }
 
 function Pacupgrade {
-  sudo pacman -Syu
+  sudo pacman -Syu "$@"
 }
 
 ### Non-mandatory functions:
 function Aurget {
-  yay -S "${@}"
+  yay -S "$@"
 }
 
 function Aursearch {
-  yay -Ss "${@}"
+  yay -Ss "$@"
 }
 
 function Aurrm {
@@ -39,9 +39,9 @@ function Aurrm {
 }
 
 function Aurupdate {
-  yay -Syy
+  yay -Syy "$@"
 }
 
 function Aurupgrade {
-  yay -Syu
+  yay -Syu "$@"
 }
