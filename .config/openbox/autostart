@@ -21,7 +21,7 @@
 # Start rxvt-unicode's daemon:
 (sleep 1s && urxvtd) &
 # Set keyboard layout:
-(sleep 1s && bash -c 'setxkbmap dvorak -variant pl -option caps:escape -option compose:menu') &
+(sleep 1s && bash -c 'setxkbmap pl -variant dvorak -option caps:escape -option compose:menu') &
 
 ##### ----- After 2 seconds: ----- ######
 # Start the compositing manager (alpha/transparency in openbox):
