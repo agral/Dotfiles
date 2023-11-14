@@ -37,14 +37,14 @@ local masonLsp_setup_settings = {
 }
 masonLSP.setup(masonLsp_setup_settings)
 
-local handlers = require("user.lsp.handlers")
+local handlers = require("gral.lsp.handlers")
 for _, server_name in pairs(required_servers) do
   local opts = {
     on_attach = handlers.on_attach,
     capabilities = handlers.capabilities,
   }
   local server = vim.split(server_name, "@")[1]
-  local server_is_good, server_config = pcall(require, string.format("user.lsp.settings.%s", server))
+  local server_is_good, server_config = pcall(require, string.format("gral.lsp.settings.%s", server))
   if not server_is_good then
     vim.api.nvim_echo({
       {"[LSP server]", "SpellRare"},
