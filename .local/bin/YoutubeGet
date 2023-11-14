@@ -59,6 +59,7 @@ if [ -n "${target_is_mp3}" ]; then
     --continue --ignore-errors --no-overwrites \
     --output "%(title)s.%(ext)s" \
     --extract-audio \
+    --add-metadata \
     --audio-quality 0 \
     --audio-format mp3 \
     "${args_positional[@]}"
