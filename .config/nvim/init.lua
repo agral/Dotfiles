@@ -140,7 +140,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_create_autocmd("BufReadPost", {
     callback = function()
         -- Don't do this for gitcommit files:
-        if vim.bo.filetype ~= "gitcommit" then
+        if vim.bo.filetype == "gitcommit" then
             return
         end
         vim.cmd([[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]])
@@ -566,7 +566,7 @@ lazy_plugin.setup({
     },
 }, {
     ui = {
-        icons = vim.g.have_nerd_font and {} or {
+        icons = vim.g.have_nerd_font and {
             cmd = '⌘',
             config = '🛠',
             event = '📅',
@@ -580,6 +580,6 @@ lazy_plugin.setup({
             start = '🚀',
             task = '📌',
             lazy = '💤 ',
-        },
+        } or {},
     }
 }) -- end of lazy plugin setup
