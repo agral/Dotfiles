@@ -1,3 +1,5 @@
+vim.g.have_nerd_font = true
+
 vim.opt.autoread = true -- automatic detection of file change.
 vim.opt.backup = false
 vim.opt.breakindent = true
@@ -8,16 +10,20 @@ vim.opt.cursorline = true
 vim.opt.fileencoding = "utf-8"
 vim.opt.guifont = "monospace:h16"
 vim.opt.hlsearch = true
+
+-- Preview substitutions live, analogous to searching with incsearch on:
+vim.opt.inccommand = "split"
+
 vim.opt.lazyredraw = true
-vim.opt.listchars = { trail = "•", tab=">~" }
 vim.opt.list = true
-vim.opt.mouse = ""        -- disable mouse support completely.
+vim.opt.listchars = { nbsp = "␣", tab = "»~", trail = "·" }
+vim.opt.mouse = "" -- disable mouse support completely.
 vim.opt.termguicolors = true
 
 -- indentation:
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 2    -- use two spaces for every indentation level
-vim.opt.tabstop = 2       -- insert two spaces for a tab
+vim.opt.shiftwidth = 4 -- use four spaces for every indentation level
+vim.opt.tabstop = 4 -- insert four spaces for a tab
 
 -- numberline-related options
 vim.opt.number = true
@@ -29,6 +35,7 @@ vim.opt.pumheight = 10
 
 vim.opt.scrolloff = 7
 vim.opt.sidescrolloff = 7
+vim.opt.signcolumn = "yes"
 
 -- omit all ins-completion-menu messages (like: "match 1 of 3", "Pattern not found", etc.):
 vim.opt.shortmess:append("c")
@@ -53,20 +60,20 @@ vim.opt.splitright = true
 vim.opt.swapfile = false
 
 -- time to wait for a mapped key sequence to complete, in milliseconds:
-vim.opt.timeoutlen = 1000
+vim.opt.timeoutlen = 400
 
 -- enable persistent undo
 vim.opt.undofile = true
 
 -- completion engine timeout, in milliseconds. Default: 4000. Smaller timeout is faster.
-vim.opt.updatetime = 300
+vim.opt.updatetime = 250
 
 vim.opt.wrap = true
 vim.opt.writebackup = false
 
 -- make nvim treat '-' character as part of the keyword (default: separator).
 -- this lets for more natural handling of hyphen-case-keywords.
-vim.cmd [[set iskeyword+=-]]
+vim.cmd([[set iskeyword+=-]])
 
 -- Better autocomplete behavior:
 -- menuone -> show popup also for entries where only one match is available.

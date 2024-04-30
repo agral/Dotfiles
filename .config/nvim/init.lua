@@ -1,87 +1,4 @@
---[[ SECTION: OPTIONS --]]
-vim.g.have_nerd_font = true
-
-vim.opt.autoread = true -- automatic detection of file change.
-vim.opt.backup = false
-vim.opt.breakindent = true
-vim.opt.clipboard = "unnamedplus"
-vim.opt.cmdheight = 1
-vim.opt.conceallevel = 0
-vim.opt.cursorline = true
-vim.opt.fileencoding = "utf-8"
-vim.opt.guifont = "monospace:h16"
-vim.opt.hlsearch = true
-
--- Preview substitutions live, analogous to searching with incsearch on:
-vim.opt.inccommand = "split"
-
-vim.opt.lazyredraw = true
-vim.opt.list = true
-vim.opt.listchars = { nbsp = "␣", tab = "»~", trail = "·" }
-vim.opt.mouse = "" -- disable mouse support completely.
-vim.opt.termguicolors = true
-
--- indentation:
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4 -- use four spaces for every indentation level
-vim.opt.tabstop = 4 -- insert four spaces for a tab
-
--- numberline-related options
-vim.opt.number = true
-vim.opt.numberwidth = 4
-vim.opt.relativenumber = false
-
--- height of a pop-up menu:
-vim.opt.pumheight = 10
-
-vim.opt.scrolloff = 7
-vim.opt.sidescrolloff = 7
-vim.opt.signcolumn = "yes"
-
--- omit all ins-completion-menu messages (like: "match 1 of 3", "Pattern not found", etc.):
-vim.opt.shortmess:append("c")
-
--- do not show current mode (NORMAL/INSERT/VISUAL/...)
-vim.opt.showmode = false
-
--- show tab names, but only if at least two tabs are present.
-vim.opt.showtabline = 1
-
--- always show the sign column, even with no issues to indicate:
-vim.opt.signcolumn = "yes"
-
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
--- React to the syntax/style of code that is being edited. If true, set autoindent to true, too.:
-vim.opt.smartindent = true
--- Apply the indentation of the current line to the next (by either Enter in insert mode, or o/O in normal):
-vim.opt.autoindent = true
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.swapfile = false
-
--- time to wait for a mapped key sequence to complete, in milliseconds:
-vim.opt.timeoutlen = 400
-
--- enable persistent undo
-vim.opt.undofile = true
-
--- completion engine timeout, in milliseconds. Default: 4000. Smaller timeout is faster.
-vim.opt.updatetime = 250
-
-vim.opt.wrap = true
-vim.opt.writebackup = false
-
--- make nvim treat '-' character as part of the keyword (default: separator).
--- this lets for more natural handling of hyphen-case-keywords.
-vim.cmd([[set iskeyword+=-]])
-
--- Better autocomplete behavior:
--- menuone -> show popup also for entries where only one match is available.
--- preview -> show extra info regarding currently highlighted completion
--- noselect -> do not complete matching until it is manually selected by the user.
-vim.opt.completeopt = { "menuone", "preview", "noselect" }
-
+require("gral.options")
 
 --[[ SECTION: COMMON KEYMAPS --]]
 local vks = function(trigger, mapping, description, mode_override)
@@ -305,15 +222,27 @@ lazy_plugin.setup({
             }
 
             -- Ensures that the servers and tools listed above are installed.
-            require("mason").setup()
+            local mason_is_good, mason = pcall(require, "mason")
+            if not mason_is_good then
+                vim.api.nvim_echo({
+                    {"[Plugin error]", "Error"},
+                    {"`mason` plugin is missing", "Normal"}
+                }, true, {})
+            end
+            mason.setup({
+                log_level = vim.log.levels.INFO,
+                max_concurrent_installers = 4,
+                ui = {
+                    border = "rounded",
+                },
+            })
 
             local ensure_installed = vim.tbl_keys(servers or {})
-            vim.list_extend(ensure_installed, {
-                "stylua", -- format Lua code
-            })
             require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
             require("mason-lspconfig").setup({
+                automatic_installation = true,
+                ensure_installed = ensure_installed,
                 handlers = {
                     function(server_name)
                         local server = servers[server_name] or {}
@@ -358,31 +287,31 @@ lazy_plugin.setup({
             luasnip.config.setup({})
 
             local nf_icons = {
-              Text = "",
-              Method = "m",
-              Function = "",
-              Constructor = "",
-              Field = "",
-              Variable = "",
               Class = "",
+              Color = "",
+              Constant = "",
+              Constructor = "",
+              Enum = "",
+              EnumMember = "",
+              Event = "",
+              Field = "",
+              File = "",
+              Folder = "",
+              Function = "",
               Interface = "",
+              Keyword = "",
+              Method = "m",
               Module = "",
+              Operator = "",
               Property = "",
+              Reference = "",
+              Snippet = "",
+              Struct = "",
+              Text = "",
+              TypeParameter = "",
               Unit = "",
               Value = "",
-              Enum = "",
-              Keyword = "",
-              Snippet = "",
-              Color = "",
-              File = "",
-              Reference = "",
-              Folder = "",
-              EnumMember = "",
-              Constant = "",
-              Struct = "",
-              Event = "",
-              Operator = "",
-              TypeParameter = "",
+              Variable = "",
             }
 
             cmp.setup({
@@ -566,7 +495,8 @@ lazy_plugin.setup({
     },
 }, {
     ui = {
-        icons = vim.g.have_nerd_font and {
+        -- if NF available, use empty array - it will be overridden. Otherwise define base Unicode icons:
+        icons = vim.g.have_nerd_font and {} or {
             cmd = '⌘',
             config = '🛠',
             event = '📅',
@@ -580,6 +510,6 @@ lazy_plugin.setup({
             start = '🚀',
             task = '📌',
             lazy = '💤 ',
-        } or {},
+        },
     }
 }) -- end of lazy plugin setup
