@@ -1,61 +1,43 @@
-local opts = {noremap = true, silent = true,}
-local opts_only_noremap = {noremap=true,}
-local keymap = vim.api.nvim_set_keymap
+local vks = function(trigger, mapping, description, mode_override)
+    local mode = mode_override or "n"
+    vim.keymap.set(mode, trigger, mapping, { desc = description, noremap = true, silent = true, })
+end
 
 -- Set <Space> as leader key:
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Use ';' as ':':
-keymap("n", ";", ":", opts)
-
--- use <leader>l to toggle search highlighting on/off:
-keymap("n", "<leader>l", ":set hlsearch!<CR>", opts)
+vks("j", "gj", "Do not skip over a wrapped line", { "n", "x", "o" })
+vks("k", "gk", "Do not skip over a wrapped line", { "n", "x", "o" })
 
 --[[ "n": Normal mode mappings --]]
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+vks(";", ":", "Use ';' as ':'")
+vks("<leader>hl", ":set hlsearch!<CR>", "Toggle search highlighting on/off")
 
--- Resize windows with arrows:
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+vks("<leader>bn", ":bnext<CR>", "Switch to buffer: next")
+vks("<leader>bp", ":bprevious<CR>", "Switch to buffer: previous")
+vks("<leader>E", ":Lexplore 30<CR>", "Explore local directory with netrw (no plugins required)")
 
--- Navigate the buffers:
-keymap("n", "<leader>bn", ":bnext<CR>", opts)
-keymap("n", "<leader>bp", ":bprevious<CR>", opts)
+vks("<A-j>", ":m .+1<CR>==", "move current line down")
+vks("<A-k>", ":m .-2<CR>==", "move current line up")
 
--- Normal mapping <leader>e set to NvimTreeToggle in nvimtree.lua
-keymap("n", "<leader>E", ":Lexplore 30<CR>", opts)
-
--- Move text up/down:
-keymap("n", "<A-j>", ":m .+1<CR>==", opts)
-keymap("n", "<A-k>", ":m .-2<CR>==", opts)
+-- Diagnostic-related keymaps:
+vks("<leader>de", vim.diagnostic.open_float, "Diagnostics: Show error message")
+vks("<leader>dj", vim.diagnostic.goto_next, "Diagnostics: Jump to next")
+vks("<leader>dn", vim.diagnostic.goto_next, "Diagnostics: Jump to next")
+vks("<leader>dk", vim.diagnostic.goto_prev, "Diagnostics: Jump to previous")
+vks("<leader>dp", vim.diagnostic.goto_prev, "Diagnostics: Jump to previous")
+vks("<leader>dq", vim.diagnostic.setloclist, "Diagnostics: show quickfix list")
 
 --[[ "v": Visual mode mappings --]]
--- Stay in visual mode when indenting:
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+vks("<", "<gv", "Decrease selection's indent level", "v")
+vks(">", ">gv", "Increase selection's indent level", "v")
+vks("<A-j>", ":m '>+1<CR>gv=gv", "Move selection down", "v")
+vks("<A-k>", ":m '<-2<CR>gv=gv", "Move selection up", "v")
 
--- Move text up/down:
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
-
--- Do not substitute the contents of paste register with previous content
--- when pasting into the selected block:
-keymap("v", "p", "\"_dP", opts)
+vks("p", '"_dP', "Do not substitute the contents of paste register " ..
+    "with previous content when pasting into the selected block", "v")
 
 --[[ "x": Visual block mode mappings --]]
--- Move text up/down:
-keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", opts)
-keymap("x", "<A-k>", ":m '>-2<CR>gv=gv", opts)
-
-keymap("c", "W", "w", opts_only_noremap)
-
-vim.keymap.set({'n', 'x', 'o'}, 'j', 'gj')
-vim.keymap.set({'n', 'x', 'o'}, 'k', 'gk')
-
--- Note: keymaps related to the LSP are defined in lsp/handlers.lua file.
+vks("<A-j>", ":m '>+1<CR>gv=gv", "Move visual block down", "x")
+vks("<A-k>", ":m '>-2<CR>gv=gv", "Move visual block up", "x")
