@@ -17,7 +17,6 @@ return {
     "--compile_args_from=filesystem", -- in general case, compile_commands might not be present; lsp is to be used then
     "--completion-parse=always",
     "--completion-style=bundled",
-    "--cross-file-rename",
     "--debug-origin",
 
     -- clangd 11+ supports reading from local .clangd configfile
