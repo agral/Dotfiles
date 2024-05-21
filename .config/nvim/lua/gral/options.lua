@@ -28,7 +28,7 @@ vim.opt.tabstop = 4 -- insert four spaces for a tab
 -- numberline-related options
 vim.opt.number = true
 vim.opt.numberwidth = 4
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 
 -- height of a pop-up menu:
 vim.opt.pumheight = 10
