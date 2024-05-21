@@ -12,6 +12,7 @@ vks("k", "gk", "Do not skip over a wrapped line", { "n", "x", "o" })
 
 --[[ "n": Normal mode mappings --]]
 vks(";", ":", "Use ';' as ':'")
+
 vks("<leader>hl", ":set hlsearch!<CR>", "Toggle search highlighting on/off")
 
 vks("<leader>bn", ":bnext<CR>", "Switch to buffer: next")
