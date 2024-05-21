@@ -23,11 +23,9 @@ return {
     "--enable-config",
 
     "--fallback-style=google",
-    "--folding-ranges",
     "--function-arg-placeholders",
     "--header-insertion=iwyu",
     "--pch-storage=memory",
-    "--suggest-missing-includes",
     "-j=12", --total workers
     "--log=error",
   },
