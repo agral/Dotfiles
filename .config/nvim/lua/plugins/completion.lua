@@ -19,6 +19,9 @@ return {
                         end,
                     },
                 },
+                config = function()
+                    require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/lua/snippets" } })
+                end
             },
             "saadparwaiz1/cmp_luasnip",
             "hrsh7th/cmp-nvim-lsp",
