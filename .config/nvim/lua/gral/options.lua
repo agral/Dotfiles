@@ -3,7 +3,8 @@ vim.g.have_nerd_font = true
 vim.opt.autoread = true -- automatic detection of file change.
 vim.opt.backup = false
 vim.opt.breakindent = true
-vim.opt.clipboard = "unnamedplus"
+-- do not use unnamedplus as default register.
+-- vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 1
 vim.opt.conceallevel = 0
 vim.opt.cursorline = true
