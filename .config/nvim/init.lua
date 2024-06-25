@@ -1,3 +1,4 @@
+require("gral.globals")
 require("gral.options")
 require("gral.keymaps")
 require("gral.autocmds")
