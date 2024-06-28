@@ -73,8 +73,7 @@ return {
                 cssls = {},
                 clangd = {},
                 gopls = {},
-                rust_analyzer = {},
-                -- call `:help lspconfig-all` to see all the available preconfigured LSPs
+                jsonls = {},
                 lua_ls = {
                     settings = {
                         Lua = {
@@ -86,6 +85,7 @@ return {
                     },
                 },
                 pyright = {},
+                rust_analyzer = {},
             }
             -- Ensures that the servers and tools listed above are installed.
             local mason_is_good, mason = pcall(require, "mason")
