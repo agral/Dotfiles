@@ -22,6 +22,9 @@ return {
     -- clangd 11+ supports reading from local .clangd configfile
     "--enable-config",
 
+    -- note: default -std=c++20 or any other standard can be set for clangd
+    -- in $XDG_CONFIG_HOME/clangd/config.yaml.
+    -- see https://github.com/agral/Dotfiles/blob/main/.config/clangd/config.yaml
     "--fallback-style=google",
     "--function-arg-placeholders",
     "--header-insertion=iwyu",
