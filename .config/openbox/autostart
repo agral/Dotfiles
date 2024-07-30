@@ -49,6 +49,7 @@
 (sleep 5s && spacefm -d) &
 (sleep 5s && ibus-daemon) &
 (sleep 5s && bash -c "${HOME}/.local/bin/InitTmuxSession") &
+(sleep 5s && blueman-applet) &
 
 ##### ----- After 6 seconds: ----- ######
 # Starts barrier server:
