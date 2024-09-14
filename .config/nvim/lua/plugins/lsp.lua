@@ -33,6 +33,7 @@ return {
                     vks("<leader>lws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "show workspace symbols")
                     vks("<leader>rn", vim.lsp.buf.rename, "rename")
                     vks("<leader>la", vim.lsp.buf.code_action, "apply quickfix code action")
+                    vks("<M-CR>", vim.lsp.buf.code_action, "apply quickfix code action")
                     vks("K", vim.lsp.buf.hover, "Hover documentation")
 
                     -- Highlight references of word-under-cursor when cursor rests over word for a little while.
@@ -58,9 +59,15 @@ return {
                         })
                     end
 
-                    -- Testing this real quick:
+                    -- Inlay hints: pretty intrusive, but sometimes helpful.
+                    -- If provided, turn off by default, but provide a way to toggle them on/off.
                     if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-                        vim.lsp.inlay_hint.enable(true)
+                        vim.lsp.inlay_hint.enable(false)
+                        local function toggle_inlay_hints()
+                            local is_enabled = vim.lsp.inlay_hint.is_enabled()
+                            vim.lsp.inlay_hint.enable(not is_enabled)
+                        end
+                        vks("<leader>lih", toggle_inlay_hints, "toggle inlay hints")
                     end
 
                 end,
