@@ -35,6 +35,10 @@ return {
                     vks("<leader>la", vim.lsp.buf.code_action, "apply quickfix code action")
                     vks("<M-CR>", vim.lsp.buf.code_action, "apply quickfix code action")
                     vks("K", vim.lsp.buf.hover, "Hover documentation")
+                    vks("<leader>d", vim.diagnostic.open_float, "Show diagnostics for current line")
+                    vks("<leader>dn", vim.diagnostic.goto_next, "Go to next diagnostic")
+                    vks("<leader>dp", vim.diagnostic.goto_prev, "Go to previous diagnostic")
+                    vks("<leader>dN", vim.diagnostic.goto_prev, "Go to previous diagnostic (alternative to <leader>dn)")
 
                     -- Highlight references of word-under-cursor when cursor rests over word for a little while.
                     local client = vim.lsp.get_client_by_id(event.data.client_id)
