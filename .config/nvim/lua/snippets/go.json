@@ -1,4 +1,38 @@
 {
+    "AdventOfCode": {
+        "prefix": "!aoc",
+        "body": [
+            "package main",
+            "",
+            "import (",
+                "\t\"bufio\"",
+                "\t\"fmt\"",
+                "\t\"log\"",
+                "\t\"os\"",
+            ")",
+            "",
+            "func main() {",
+                "\tif len(os.Args) < 2 {",
+                    "\t\tfmt.Println(\"Error: Missing the input file. Aborting.\")",
+                "\t}",
+                "\tfile, err := os.Open(os.Args[1])",
+                "\tif err != nil {",
+                    "\t\tlog.Fatal(err)",
+                "\t}",
+                "\tdefer file.Close()",
+                "",
+                "\tsilver, gold := 0, 0",
+                "\tscanner := bufio.NewScanner(file)",
+                "\tfor scanner.Scan() {",
+                "\t\tline := scanner.Text()",
+                "\t\tfmt.Println(line)",
+                "\t}",
+                "\tfmt.Printf(\"Silver: %d\\n\", silver)",
+                "\tfmt.Printf(\"Gold: %d\\n\", gold)",
+            "}"
+        ],
+        "description": "Advent of Code solution template"
+    },
     "LeetcodeSolutionGolang": {
         "prefix": "!lc",
         "body": [
