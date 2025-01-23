@@ -55,7 +55,7 @@
             "",
             "import \"testing\"",
             "",
-            "func Test${2:Foo}(t *testing.T) {",
+            "func Test_${2:Foo}(t *testing.T) {",
             "\ttestcases := []struct {",
             "\t\t${3:input}    []string",
             "\t\texpected int",
