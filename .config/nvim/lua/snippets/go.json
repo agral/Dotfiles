@@ -74,6 +74,24 @@
         ],
         "description": "Leetcode challenge testcase in Golang"
     },
+    "Queue": {
+        "prefix": "Queue",
+        "body": [
+            "type ${1:Queue} []${2:int}\n",
+            "func (q *$1) Enqueue(val $2) {",
+            "\t*q = append(*q, val)",
+            "}\n",
+            "func (q *$1) Dequeue() ($2, error) {",
+            "\tif len(*q) == 0 {",
+            "\t\treturn 0, fmt.Errorf(\"Dequeue() from an empty $1.\")",
+            "\t}",
+            "\tval := (*q)[0]",
+            "\t*q = (*q)[1:]",
+            "\treturn val, nil",
+            "}"
+        ],
+        "description": "Simple queue (FIFO) data structure. Not thread-safe!"
+    },
     "Stack": {
         "prefix": "Stack",
         "body": [
@@ -95,6 +113,6 @@
             "// var popped int",
             "// s, popped = s.Pop()"
         ],
-        "description": "Simple stack data structure. Not thread-safe!"
+        "description": "Simple stack (LIFO) data structure. Not thread-safe!"
     }
 }
