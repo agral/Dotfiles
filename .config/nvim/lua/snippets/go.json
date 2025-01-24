@@ -96,22 +96,18 @@
         "prefix": "Stack",
         "body": [
             "type ${1:Stack} []${2:int}\n",
-            "func (s $1) Push(val $2) $1 {",
-            "\treturn append(s, val)",
+            "func (s *$1) Push(val $2) {",
+            "\t*s = append(*s, val)",
             "}\n",
-            "func (s $1) Pop() ($1, $2) {",
-            "\tsz := len(s)",
+            "func (s *$1) Pop() ($2, error) {",
+            "\tsz := len(*s)",
             "\tif sz == 0 {",
-            "\t\tpanic(\"Just tried to Pop() from an empty $1.\")",
+            "\t\treturn 0, fmt.Errorf(\"Pop() from an empty $1.\")",
             "\t}",
-            "\treturn s[:sz-1], s[sz-1]",
-            "}\n",
-            "// Usage:",
-            "// var s $1",
-            "// OR s := make($1, 0)",
-            "// s = s.Push(1) // note: this example uses int stack",
-            "// var popped int",
-            "// s, popped = s.Pop()"
+            "\tval := (*s)[sz-1]",
+            "\t*s = (*s)[:sz-1]",
+            "\treturn val, nil",
+            "}"
         ],
         "description": "Simple stack (LIFO) data structure. Not thread-safe!"
     }
