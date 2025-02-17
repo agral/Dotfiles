@@ -1,0 +1,28 @@
+{
+    "AdventOfCode": {
+        "prefix": "!aoc",
+        "body": [
+            "TO-DO"
+        ],
+        "description": "Advent of Code solution in Python"
+    },
+    "LeetcodeSolutionPython": {
+        "prefix": "!lc",
+        "body": [
+            "from typing import List\n",
+            "class Solution:",
+            "    def ${1:solve}(self, ${2:l: List[int]}) -> ${3:int}:",
+            "        ans = 0",
+            "        # TODO$0",
+            "        return ans\n",
+            "def main():",
+            "    s = Solution()",
+            "    assert(s.$1() == 42)",
+            "    print(\"All testcases passed successfully.\")\n",
+            "if __name__ == \"__main__\":",
+            "    main()"
+
+        ],
+        "description": "Leetcode challenge solution in Python"
+    }
+}

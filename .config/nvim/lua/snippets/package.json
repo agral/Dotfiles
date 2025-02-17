@@ -17,6 +17,10 @@
             {
                 "language": "html",
                 "path": "./html.json"
+            },
+            {
+                "language": "python",
+                "path": "./python.json"
             }
         ]
     }
