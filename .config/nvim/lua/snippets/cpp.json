@@ -1,0 +1,40 @@
+{
+    "LeetcodeSolutionCpp": {
+        "prefix": "!lc",
+        "body": [
+            "#include <iostream>\n",
+            "class Solution {",
+            "public:",
+            "    ${1:int} ${2:solve}(${3:int} ${4:input}) {",
+            "        $1 ans = {};",
+            "        // TODO $0",
+            "        return ans;\n",
+            "    }",
+            "};\n",
+            "int main() {",
+            "    struct Testcase {",
+            "        $3 $4;",
+            "        $1 expected;",
+            "    };",
+            "    Testcase testcases[] = {",
+            "        {${5}},",
+            "    };",
+            "    Solution s{};",
+            "    int numGood = 0, numBad = 0;",
+            "    for (const Testcase& tc: testcases) {",
+            "        auto actual = s.$2(tc.$4);",
+            "        if (actual != tc.expected) {",
+            "            std::cout << \"Testcase \" << tc.$4 << \" failed. Got: \" << actual",
+            "                << \", want: \" << tc.expected << \"\\n\";",
+            "            ++numBad;",
+            "        } else {",
+            "            ++numGood;",
+            "        }",
+            "    }",
+            "    std::cout << (numBad == 0 ? \"[OK]\" : \"[FAIL]\") << \" \"",
+            "        << numGood << \"/\" << (numBad + numGood) << \" testcases passed successfully.\\n\";",
+            "}"
+        ],
+        "description": "Leetcode challenge solution in C++"
+    }
+}
