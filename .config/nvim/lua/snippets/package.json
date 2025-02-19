@@ -11,6 +11,10 @@
                 "path": "./all.json"
             },
             {
+                "language": "cpp",
+                "path": "./cpp.json"
+            },
+            {
                 "language": "go",
                 "path": "./go.json"
             },
