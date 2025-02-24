@@ -23,6 +23,10 @@
                 "path": "./html.json"
             },
             {
+                "language": "json",
+                "path": "./json.json"
+            },
+            {
                 "language": "python",
                 "path": "./python.json"
             }

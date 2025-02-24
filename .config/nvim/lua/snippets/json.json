@@ -1,0 +1,15 @@
+{
+    "CustomCodeSnippet": {
+        "prefix": "!snip",
+        "body": [
+            "\"${1:snippet_name}\": {",
+            "    \"prefix\": \"!${2:keyword}\",",
+            "    \"body\": [",
+            "        \"$0\"",
+            "    ],",
+            "    \"description\": \"${3:description}\"",
+            "},"
+        ],
+        "description": "An empty JSON snippet"
+    }
+}
