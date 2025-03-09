@@ -14,15 +14,22 @@
             "    def ${1:solve}(self, ${2:l: List[int]}) -> ${3:int}:",
             "        ans = 0",
             "        # TODO$0",
-            "        return ans\n",
-            "def main():",
-            "    s = Solution()",
-            "    assert(s.$1() == 42)",
-            "    print(\"All testcases passed successfully.\")\n",
-            "if __name__ == \"__main__\":",
-            "    main()"
-
+            "        return ans\n"
         ],
         "description": "Leetcode challenge solution in Python"
+    },
+    "LeetcodeTestcasePython": {
+        "prefix": "!tc",
+        "body": [
+            "import unittest\n",
+            "from lc${1:0000} import Solution\n",
+            "class Test_${2:solve}(unittest.TestCase):",
+            "    def test(self):",
+            "        s = Solution()",
+            "        self.assertEqual(s.$2(${3:args}), ${4:0})\n",
+            "if __name__ == \"__main__\":",
+            "    unittest.main()"
+        ],
+        "description": "Leetcode challenge unit tests in Python"
     }
 }
