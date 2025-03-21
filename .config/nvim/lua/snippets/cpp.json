@@ -90,5 +90,23 @@
             "}"
         ],
         "description": "Inserts a definition of a binary tree data structure in C++"
+    },
+    "VectorToString": {
+        "prefix": "!vectostring",
+        "body": [
+            "template<typename T>",
+            "std::string vectorToString(std::vector<T> vec) {",
+            "    std::string separator = \"\";",
+            "    std::stringstream ss;",
+            "    ss << \"[\";",
+            "    for (const auto& elem: vec) {",
+            "        ss << separator << elem;",
+            "        separator = \", \";",
+            "    }",
+            "    ss << \"]\";",
+            "    return ss.str();",
+            "}"
+        ],
+        "description": "Converts any C++ vector to a string"
     }
 }
