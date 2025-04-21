@@ -39,8 +39,9 @@
     "LeetcodeSolutionGolang": {
         "prefix": "!lc",
         "body": [
-            "package lc${1:0001}",
-            "",
+            "package lc${1:0001}\n",
+            "// Runtime complexity:",
+            "// Auxiliary space:",
             "func ${2:foo() int} {",
             "\tans := 0$0",
             "\treturn ans",
