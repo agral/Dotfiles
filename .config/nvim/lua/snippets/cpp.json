@@ -85,6 +85,9 @@
             "    if (tree2 == nullptr) {",
             "        return false;",
             "    }",
+            "    if (tree1->val != tree2->val) {",
+            "        return false;",
+            "    }",
             "    return is_same(tree1->left, tree2->left) &&",
             "           is_same(tree1->right, tree2->right);",
             "}"
