@@ -50,7 +50,7 @@
             "    TreeNode(int v) : val(v), left(nullptr), right(nullptr) {}",
             "    TreeNode(int v, TreeNode *left, TreeNode *right)",
             "        : val(v), left(left), right(right) {}",
-            "    };\n",
+            "};\n",
             "TreeNode *makeTree(std::vector<int> values) {",
             "    if (values.empty()) {",
             "        return nullptr;",
