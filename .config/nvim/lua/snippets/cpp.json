@@ -23,7 +23,7 @@
             "    };",
             "    Solution s{};",
             "    int numGood = 0, numBad = 0;",
-            "    for (const Testcase& tc: testcases) {",
+            "    for (Testcase& tc: testcases) {",
             "        auto actual = s.$2(tc.$4);",
             "        if (actual != tc.expected) {",
             "            std::cout << \"Testcase \" << tc.$4 << \" failed. Got: \" << actual",
