@@ -9,7 +9,7 @@
             "public:",
             "    ${1:int} ${2:solve}(${3:int} ${4:input}) {",
             "        $1 ans = {};",
-            "        // TODO $0",
+            "        // TODO$0",
             "        return ans;\n",
             "    }",
             "};\n",
