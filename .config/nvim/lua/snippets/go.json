@@ -1,4 +1,16 @@
 {
+    "abs": {
+        "prefix": "!abs",
+        "body": [
+            "func abs(x int) int {",
+                "\tif x < 0 {",
+                    "\t\treturn -x",
+                "\t}",
+                "\treturn x",
+            "}"
+        ],
+        "description": "Abs function over ints"
+    },
     "AdventOfCode": {
         "prefix": "!aoc",
         "body": [
