@@ -87,6 +87,26 @@
         ],
         "description": "Leetcode challenge testcase in Golang"
     },
+    "MinHeap": {
+        "prefix": "!minheap",
+        "body": [
+            "type IntHeap []int\n",
+            "func (h IntHeap) Len() int { return len(h) }",
+            "func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }",
+            "func (h IntHeap) Swap(i, j int) { h[i], h[j] = h[j], h[i] }\n",
+            "func (h *IntHeap) Push(x any) {",
+            "\t*h = append(*h, x.(int))",
+            "}\n",
+            "func (h *IntHeap) Pop() any {",
+            "\tinstance := *h",
+            "\tn := len(instance)",
+            "\tans := instance[n-1]",
+            "\t*h = instance[0:n-1]",
+            "\treturn ans",
+            "}"
+        ],
+        "description": "A min-heap of int values"
+    },
     "PriorityQueue": {
         "prefix": "priorityqueue",
         "body": [
