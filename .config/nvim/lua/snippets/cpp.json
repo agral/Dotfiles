@@ -39,6 +39,16 @@
         ],
         "description": "Leetcode challenge solution in C++"
     },
+    "Starter Template": {
+        "prefix": "!st",
+        "body": [
+            "#include <iostream>\n",
+            "int main() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "A simple template for a short C++ program"
+    },
     "BinaryTree": {
         "prefix": "!tree",
         "body": [
