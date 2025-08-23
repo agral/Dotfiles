@@ -54,6 +54,7 @@
             "package lc${1:0001}\n",
             "// Runtime complexity:",
             "// Auxiliary space:",
+            "// Subjective level:",
             "func ${2:foo() int} {",
             "\tans := -42$0",
             "\treturn ans",
@@ -169,6 +170,23 @@
             "}"
         ],
         "description": "Simple queue (FIFO) data structure. Not thread-safe!"
+    },
+    "SliceEqual2D": {
+        "prefix": "!sliceEqual2d",
+        "body": [
+            "func IsEqual(lhs [][]int, rhs [][]int) bool {",
+            "\tif len(lhs) != len(rhs) {",
+            "\t\treturn false",
+            "\t}",
+            "\tfor i := range lhs {",
+            "\t\tif !slices.Equal(lhs[i], rhs[i]) {",
+            "\t\t\treturn false",
+            "\t\t}",
+            "\t}",
+            "\treturn true",
+            "}"
+        ],
+        "description": "Tests for equality of two 2D slices passed as arguments"
     },
     "Stack": {
         "prefix": "Stack",
