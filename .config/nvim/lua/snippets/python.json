@@ -12,6 +12,7 @@
             "from typing import List\n",
             "# Runtime complexity: ",
             "# Auxiliary space complexity: ",
+            "# Subjective level: ",
             "class Solution:",
             "    def ${1:solve}(self, ${2:l}: ${3:List[int]}) -> ${4:int}:",
             "        ans = 0",
