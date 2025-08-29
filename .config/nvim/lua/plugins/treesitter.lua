@@ -2,9 +2,11 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        lazy = false,
+        branch = "master",
         opts = {
             -- Valid entries: "all" / "maintained" / [list-of-languages]:
-            ensure_installed = { "bash", "c", "cpp", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+            ensure_installed = { "bash", "c", "cpp", "go", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
             --ensure_installed = "maintained",
             auto_install = true,
             highlight = {
