@@ -1,4 +1,11 @@
 {
+    "DIRS": {
+        "prefix": "!directions",
+        "body": [
+            "const std::vector<std::vector<int>> DIRS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};"
+        ],
+        "description": "Unit directions on a 2D grid"
+    },
     "LeetcodeSolutionCpp": {
         "prefix": "!lc",
         "body": [
