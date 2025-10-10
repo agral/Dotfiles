@@ -48,6 +48,13 @@
         ],
         "description": "Advent of Code solution template"
     },
+    "DIRS": {
+        "prefix": "!dirs",
+        "body": [
+            "DIRS := [][]int{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}"
+        ],
+        "description": "Inserts a 2D slice with unit directions on 2D grid"
+    },
     "LeetcodeSolutionGolang": {
         "prefix": "!lc",
         "body": [
