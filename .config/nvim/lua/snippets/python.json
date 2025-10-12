@@ -21,6 +21,13 @@
         ],
         "description": "Leetcode challenge solution in Python"
     },
+    "Modulo_BigPrime": {
+        "prefix": "!mod",
+        "body": [
+            "MOD = 1_000_000_007"
+        ],
+        "description": "Define a big prime for modular arithmetics"
+    },
     "LeetcodeTestcasePython": {
         "prefix": "!tc",
         "body": [
