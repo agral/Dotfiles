@@ -54,4 +54,9 @@
 ##### ----- After 6 seconds: ----- ######
 # Starts barrier server:
 (sleep 6s && bash -c "${HOME}/.local/bin/MachineSpecific/BarrierStart.sh") &
+
+# I'm using a keyboard that makes Arch wake up immediately after suspend.
+# Logitech is truly shitty, but they make good keyboards. Start up solaar, hidden, as a workaround.
+# https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#Logi_Bolt_receiver
+(sleep 6s && solaar -w hide) &
 ##### ----- AUTOSTART ROUTINE COMPLETED ----- #####
