@@ -62,6 +62,7 @@
             "// Runtime complexity:",
             "// Auxiliary space:",
             "// Subjective level:",
+            "// Solved on: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
             "func ${2:foo() int} {",
             "\tans := -42$0",
             "\treturn ans",
