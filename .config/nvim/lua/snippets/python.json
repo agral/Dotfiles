@@ -13,9 +13,10 @@
             "# Runtime complexity:",
             "# Auxiliary space complexity:",
             "# Subjective level:",
+            "# Solved on: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
             "class Solution:",
             "    def ${1:solve}(self, ${2:l}: ${3:List[int]}) -> ${4:int}:",
-            "        ans = 0",
+            "        ans = -42",
             "        # TODO$0",
             "        return ans\n"
         ],
