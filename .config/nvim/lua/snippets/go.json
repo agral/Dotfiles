@@ -116,6 +116,13 @@
         ],
         "description": "A min-heap of int values"
     },
+    "Mod_1e9+7": {
+        "prefix": "!MOD",
+        "body": [
+            "const MOD int = 1_000_000_007"
+        ],
+        "description": "Definition of a big integer 1e9+7, a popular modulo divisor in competitive programming."
+    },
     "PriorityQueue": {
         "prefix": "priorityqueue",
         "body": [
