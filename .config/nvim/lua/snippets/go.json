@@ -124,7 +124,7 @@
         "description": "Definition of a big integer 1e9+7, a popular modulo divisor in competitive programming."
     },
     "PriorityQueue": {
-        "prefix": "priorityqueue",
+        "prefix": "!priorityqueue",
         "body": [
             "type Item struct {",
             "\tvalue int",
