@@ -103,6 +103,13 @@
         ],
         "description": "Leetcode challenge solution in C++"
     },
+    "Mod_1e9+7": {
+        "prefix": "!MOD",
+        "body": [
+            "constexpr int MOD = 1'000'000'007;"
+        ],
+        "description": "1e9+7, a popular modulo divisor in competitive programming."
+    },
     "Starter Template": {
         "prefix": "!st",
         "body": [
