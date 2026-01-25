@@ -89,7 +89,8 @@
             "\tfor i, tc := range testcases {",
             "\t\tactual := $2(tc.$3)",
             "\t\tif actual != tc.expected {",
-            "\t\t\tt.Errorf(\"Testcase $2#%02d (%v) failed: want %d, got %d\", i+1, tc.$3, tc.expected, actual)",
+            "\t\t\tt.Errorf(\"Testcase $2#%02d (%v) failed: want %d, got %d\",",
+            "\t\t\t\ti+1, tc.$3, tc.expected, actual)",
             "\t\t}",
             "\t}",
             "}"
