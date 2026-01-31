@@ -1,0 +1,17 @@
+{
+    "leetcode_description": {
+        "prefix": "!lc",
+        "body": [
+            "# ${1:0000. Number and Title}\n",
+            "## Difficulty: ${2:easy}\n",
+            "## Topics: ${3}\n",
+            "## Description:\n${4}\n",
+            "## Examples:",
+            "### Example 1:\n```\n...\n```\n",
+            "## Constraints:",
+            " - `...`",
+            ""
+        ],
+        "description": "Template of a Leetcode question's description in Markdown"
+    }
+}
