@@ -18,7 +18,7 @@
             "    def ${1:solve}(self, ${2:l}: ${3:List[int]}) -> ${4:int}:",
             "        ans = -42",
             "        # TODO$0",
-            "        return ans\n"
+            "        return ans"
         ],
         "description": "Leetcode challenge solution in Python"
     },
