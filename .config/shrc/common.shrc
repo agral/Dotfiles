@@ -63,6 +63,11 @@ function x {
 }
 ### End of one-letter aliases' section ###
 
+# Make it possible to exit both nvim and tmux panes with same key sequence:
+## Note: can't be done with plain aliases (';' can't be escaped); so this is done
+## as a readline macro:
+bind '";q": "q"'
+
 # Frag'em easier:
 alias k9='kill -9'
 alias ka='killall'
