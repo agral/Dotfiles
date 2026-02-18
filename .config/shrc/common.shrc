@@ -92,7 +92,7 @@ alias Path='echo -e ${PATH//:/\\n}'
 
 # Easy time and date:
 alias Time='date "+%T"'
-alias Date='date "+%d.%m.%Y"'
+alias Date='date "+%Y-%m-%d"'
 alias Unixtime='date "+%s"'
 
 # Better & faster ping tool:
