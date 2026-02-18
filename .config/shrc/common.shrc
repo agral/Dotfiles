@@ -152,3 +152,6 @@ function Cheat() {
     shift
   done
 }
+
+alias GoCover='go test -cover .'
+alias GoCoverage='go test -coverprofile=/tmp/coverage.out && go tool cover -html=/tmp/coverage.out'
