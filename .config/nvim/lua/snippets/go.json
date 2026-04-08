@@ -176,7 +176,14 @@
         "body": [
             "const MOD int = 1_000_000_007"
         ],
-        "description": "Definition of a big integer 1e9+7, a popular modulo divisor in competitive programming."
+        "description": "Definition of an integer 1e9+7, a popular modulo divisor in competitive programming."
+    },
+    "Mod_1e9+7_64": {
+        "prefix": "!MOD64",
+        "body": [
+            "const MOD int64 = 1_000_000_007"
+        ],
+        "description": "Definition of an int64 1e9+7, a popular modulo divisor in competitive programming."
     },
     "PriorityQueue": {
         "prefix": "!priorityqueue",
