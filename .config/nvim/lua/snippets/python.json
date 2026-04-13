@@ -6,6 +6,13 @@
         ],
         "description": "Advent of Code solution in Python"
     },
+    "DIRS": {
+        "prefix": "!dirs",
+        "body": [
+            "DIRS = ((-1, 0), (0, 1), (1, 0), (0, -1))"
+        ],
+        "description": "Inserts a tuple of four unit directions on a 2D grid"
+    },
     "LeetcodeSolutionPython": {
         "prefix": "!lc",
         "body": [
