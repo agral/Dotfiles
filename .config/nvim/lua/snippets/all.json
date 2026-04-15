@@ -1,4 +1,11 @@
 {
+    "gral_const": {
+        "prefix": "!gralhex",
+        "body": [
+            "71826576"
+        ],
+        "description": "'GRAL' ascii codes (in decimal); 71-82-65-76. Fits in a 32-bit int."
+    },
     "MIT_License": {
         "prefix": "!mit",
         "body": [
