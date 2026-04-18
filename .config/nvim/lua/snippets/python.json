@@ -63,6 +63,20 @@
         ],
         "description": "Define a big prime for modular arithmetics"
     },
+    "ReverseInteger": {
+        "prefix": "!reverse",
+        "body": [
+            "def reverse(self, num: int) -> int:",
+            "\tans = 0",
+            "\twhile num > 0:",
+            "\t\tk = num % 10",
+            "\t\tnum //= 10",
+            "\t\tans *= 10",
+            "\t\tans += k",
+            "\treturn ans"
+        ],
+        "description": "Reverse an integer. 12345 -> 54321; 1200 -> 21."
+    },
     "LeetcodeTestcasePython": {
         "prefix": "!tc",
         "body": [
