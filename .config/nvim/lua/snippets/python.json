@@ -77,6 +77,32 @@
         ],
         "description": "Reverse an integer. 12345 -> 54321; 1200 -> 21."
     },
+    "UnionFind": {
+        "prefix": "!unionfind",
+        "body": [
+            "class UnionFind:",
+            "\tdef __init__(self, n: int):",
+            "\t\tself.id = list(range(n))",
+            "\t\tself.rank = [0] * n\n",
+            "\tdef union_by_rank(self, u: int, v: int) -> None:",
+            "\t\tidx_u = self.find(u)",
+            "\t\tidx_v = self.find(v)",
+            "\t\tif idx_u == idx_v:",
+            "\t\t\treturn",
+            "\t\tif self.rank[idx_u] < self.rank[idx_v]:",
+            "\t\t\tself.id[idx_u] = idx_v",
+            "\t\telif self.rank[idx_u] > self.rank[idx_v]:",
+            "\t\t\tself.id[idx_v] = idx_u",
+            "\t\telse:",
+            "\t\t\tself.id[idx_u] = idx_v",
+            "\t\t\tself.rank[idx_v] += 1\n",
+            "\tdef find(self, u: int) -> int:",
+            "\t\tif self.id[u] != u:",
+            "\t\t\tself.id[u] = self.find(self.id[u])",
+            "\t\treturn self.id[u]"
+        ],
+        "description": "UnionFind class with `union_by_rank` and `find` methods"
+    },
     "LeetcodeTestcasePython": {
         "prefix": "!tc",
         "body": [
