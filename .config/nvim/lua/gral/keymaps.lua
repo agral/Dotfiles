@@ -24,10 +24,6 @@ vks("<A-k>", ":m .-2<CR>==", "move current line up")
 
 -- Diagnostic-related keymaps:
 vks("<leader>de", vim.diagnostic.open_float, "Diagnostics: Show error message")
-vks("<leader>dj", vim.diagnostic.jump({count=1, float=true}), "Diagnostics: Jump to next")
-vks("<leader>dn", vim.diagnostic.jump({count=1, float=true}), "Diagnostics: Jump to next")
-vks("<leader>dk", vim.diagnostic.jump({count=-1, float=true}), "Diagnostics: Jump to previous")
-vks("<leader>dp", vim.diagnostic.jump({count=-1, float=true}), "Diagnostics: Jump to previous")
 vks("<leader>dq", vim.diagnostic.setloclist, "Diagnostics: show quickfix list")
 
 --[[ "v": Visual mode mappings --]]
