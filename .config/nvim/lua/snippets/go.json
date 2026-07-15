@@ -110,6 +110,18 @@
         ],
         "description": "Inserts a 2D slice with unit directions on 2D grid"
     },
+    "GCD": {
+        "prefix": "!gcd",
+        "body": [
+            "func gcd(a int, b int) int {",
+            "\tfor b != 0 {",
+            "\t\ta, b = b, a%b",
+            "\t}",
+            "\treturn a",
+            "}"
+        ],
+        "description": "Calculates the greatest common divisor of two numbers"
+    },
     "LeetcodeSolutionGolang": {
         "prefix": "!lc",
         "body": [
