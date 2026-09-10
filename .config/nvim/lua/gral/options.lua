@@ -64,7 +64,8 @@ vim.opt.swapfile = false
 vim.opt.timeoutlen = 400
 
 -- enable persistent undo
-vim.opt.undofile = true
+-- Update in 2026: don't enable persistent undo. Linus has invented git for a reason, after all.
+vim.opt.undofile = false
 
 -- completion engine timeout, in milliseconds. Default: 4000. Smaller timeout is faster.
 vim.opt.updatetime = 250
