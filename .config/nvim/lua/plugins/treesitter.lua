@@ -16,7 +16,7 @@ return {
             },
             ignore_install = {}, -- list of parsers to completely ignore and not install
             indent = {
-                enable = true,
+                enable = false, -- 2026: treesitter indenting does not work, messes up actual indenting.
                 disable = { "html", "ruby" },
             },
             sync_install = false,
